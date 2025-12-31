@@ -1,4 +1,4 @@
-# The SolaOne.fun White Paper
+# SolaOne.fun White Paper (French)
 
 ## 1. Introduction
 
