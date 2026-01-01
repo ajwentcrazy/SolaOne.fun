@@ -1,3 +1,99 @@
+# SolaOne White Paper
+
+## 1. Introduction
+
+**SolaOne** is an online chess platform "**Web2.5**" that redefines **skill-based betting**.
+
+**Unlike** traditional gambling games where luck dominates, **SolaOne** focuses on **"Skill-to-Earn"**. The platform leverages the **Solana blockchain** for micro-transactions and a **robust server-side architecture** to ensure **security and fair play**, eliminating trust issues in peer-to-peer betting.
+
+The game provides a **secure, instant, and fair** environment that allows players to **monetize their chess skills**.
+
+## 2. Functioning
+
+### 2.1 The Game Loop
+
+SolaOne offers a **simplified game loop** designed for engagement and fluidity, **similar to industry leaders** like **Chess.com**, but with high stakes.
+
+1. **Lobby and Setup:** Players select a time control (Bullet 1|1, Blitz 5|5, Rapid 10|0) and a stake amount ($1, $5, $10).
+2. **Matchmaking:** The system pairs the player with an opponent of similar skill level.
+3. **The Match:** The game is played in real-time. Funds are held in escrow by the game server during the match.
+4. **Settlement:** Immediately after Checkmate, Resignation, or Time Expired, the winner receives the pot directly in their game wallet.
+5. **Rating Adjustment:** Both players' ELO ratings are dynamically updated based on the match result.
+
+### 2.2 Player-Funded Economy
+
+SolaOne operates on a **zero-sum game model** (minus platform fees). Winnings are **directly funded by the opponent's stake**. The platform **does not bet** against players; it merely facilitates the **secure exchange of value**.
+
+## 3. Fair Play and Matchmaking
+
+Fairness is the cornerstone of SolaOne. We implement strict protocols to ensure that every match is fair.
+
+1. **ELO-Based Queue:** The matchmaking algorithm strictly connects players within a maximum range of **50 ELO points**. This ensures a 50/50 chance of winning for both parties.
+2. **Server-Side Validation:** The server acts as the authoritative referee. Each move is validated against FIDE chess rules before being broadcast, preventing illegal moves or client-side manipulation.
+
+### 3.1 Anti-Smurfing and Anti-Cheating
+
+1. **Proof-of-History:** SolaOne uses a unique **"Proof-of-History"** verification. Players must **link their SolaOne account to an active Chess.com account**. This is a **first layer of protection** against high-level players creating new "beginner" accounts to target weaker players.
+2. **Player Statistics:** Continuously collected server statistics help determine which players are likely smurfs or cheaters.
+
+## 4. Architecture
+
+SolaOne is built on a **High-Performance Hybrid Architecture** (Web2.5), combining the speed of centralized servers with the security of decentralized finance.
+
+### 4.1 Third-Party Integrations
+
+SolaOne integrates **industry-standard services**:
+The platform uses a third-party service for user authentication.
+
+To **interact** with the blockchain for wallet creation and fund transfers, the platform uses **Solana RPC**. Other third-party services provide real-time exchange rates for the Solana token.
+
+### 4.2 Trusted Server Logic
+
+The backend serves as the **Source of Truth**.
+
+* It maintains the official game state (FEN strings).
+* It manages official game clocks, compensating for network latency.
+* It detects disconnections and automatically resolves abandoned games.
+
+### 4.3 Performance and Storage
+
+We use an **in-memory database** for hot data (active games, moves) and a **persistent database** for cold storage (match history, financial logs).
+
+## 5. Web3 and Solana Integration
+
+We chose the **Solana Blockchain** for its specific advantages: **extremely low transaction fees** (< $0.001) and **high throughput** (TPS), making it one of the few viable chains for micro-betting.
+
+### 5.1 Transaction and Escrow Logic
+
+* **Managed Game Wallets:** To provide a smooth User Experience, SolaOne generates a non-custodial wallet derived for each user session. Private keys are only managed by the servers. This allows servers to **automatically** sign game-related transactions **without requiring trust** from the user.
+* **Flow:**
+
+  * **Pre-Game:** Users deposit SOL into their game wallet.
+  * **Post-Game:** The logic calculates the result. Servers trigger a blockchain transaction transferring 90% of the pot to the winner and 10% to the platform treasury.
+
+### 5.2 Economic Transparency
+
+* **Payments:** All payments are executed on-chain and verifiable via any Solana explorer.
+* **Platform Fee:** SolaOne charges transparent fees on winnings to cover server costs and development (10%).
+* **Segregation of Funds:** Player funds are mathematically segregated from platform funds through the derived wallet architecture.
+
+## 6. Security Architecture
+
+Security is implemented via a "Defense in Depth" strategy.
+
+* **Server-Side Validation:** Never trust the client. The server verifies every input (move legality, chat messages, bet amounts).
+* **Identity Management:** Strict mapping between Google IDs, internal UUIDs, and Solana wallets prevents identity spoofing.
+* **Anti-Cheating:**
+
+  * **Protocol Level:** WebSocket messages do not contain user identifiers; the server infers identity from the secure session, preventing spoofing attacks.
+  * **Game Level:** Engine-based analysis detects computer assistance.
+* **Wallet Protection:** The server creates signatures in a secure, isolated environment. User funds are protected from manipulation during the game as the frontend (client) has no access to private key hardware.
+
+## 7. Conclusion
+
+SolaOne represents the next evolution of online board games. By removing payment friction and ensuring a cheat-free environment through rigorous architectural choices, we offer a playground where skill is the only currency that matters.
+
+
 # SolaOne White Paper (French)
 
 ## 1. Introduction
