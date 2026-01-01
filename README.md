@@ -1,7 +1,5 @@
 # SolaOne White Paper (French)
 
-**Version :** 1.1
-
 ## 1. Introduction
 
 **SolaOne** est une plateforme d'échecs en ligne "**Web2.5**" qui redéfinit les paris basés sur la **compétence**. 
@@ -54,10 +52,10 @@ Pour **interagir** avec la blockchain pour la création de portefeuilles et les 
 Le backend sert de **Source de Vérité**.
 
 - Il maintient l'état officiel du jeu (chaînes FEN).
-- Il gère les horloges officielles du jeu, compensant le décalage réseau (Compensation de Lag).
+- Il gère les horloges officielles du jeu, compensant le décalage réseau.
 - Il détecte les déconnexions et résout automatiquement les parties abandonnées.
 
-### 4.4 Performances et Stockage
+### 4.3 Performances et Stockage
 
 Nous utilisons une **base de données en mémoire** pour les données chaudes (parties actives, coups) et une **base de données persistante** pour le stockage froid (historique des matchs, journaux financiers).
 
@@ -78,7 +76,7 @@ Nous avons choisi la **Blockchain Solana** pour ses avantages spécifiques : des
 - **Commission de Plateforme :** SolaOne facture des frais transparents sur les gains pour financer les coûts des serveurs et le développement (10%).
 - **Ségrégation des Fonds :** Les fonds des joueurs sont mathématiquement ségrégués des fonds de la plateforme grâce à l'architecture de portefeuille dérivé.
 
-## 7. Architecture de Sécurité
+## 6. Architecture de Sécurité
 
 La sécurité est mise en œuvre via une stratégie de "Défense en Profondeur".
 
@@ -89,6 +87,6 @@ La sécurité est mise en œuvre via une stratégie de "Défense en Profondeur".
     - **Niveau Jeu :** Analyse par moteur pour détecter l'assistance par ordinateur.
 - **Protection des Portefeuilles :** Le serveur crée des signatures dans un environnement sécurisé et isolé. Les fonds des utilisateurs sont protégés contre la manipulation pendant le jeu car le frontend (client) n'a aucun accès au matériel de clé privée.
 
-## 8. Conclusion
+## 7. Conclusion
 
 SolaOne représente la prochaine évolution des jeux de société en ligne. En supprimant la friction des paiements et en assurant un environnement sans triche grâce à des choix architecturaux rigoureux, nous offrons un terrain de jeu où la compétence est la seule monnaie qui compte.
