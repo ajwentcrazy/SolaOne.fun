@@ -94,6 +94,8 @@ Security is implemented via a "Defense in Depth" strategy.
 SolaOne represents the next evolution of online board games. By removing payment friction and ensuring a cheat-free environment through rigorous architectural choices, we offer a playground where skill is the only currency that matters.
 
 
+
+
 # SolaOne White Paper (French)
 
 ## 1. Introduction
